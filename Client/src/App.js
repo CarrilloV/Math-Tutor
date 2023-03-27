@@ -1,3 +1,4 @@
+import './normal.css';
 import './App.css';
 import { useState } from 'react';
 
@@ -6,11 +7,8 @@ function App() {
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([{
     user: "gpt:",
-    message: "How can I help you today?"
-  },{
-    user: "me",
-    message: "I want to use ChatGPT today"
-  }]);
+    message: "Hello! I am your Math Learning Assistant, how can I help you today?"}
+  ]);
 
   function clearChat(){
     setChatLog([]);
