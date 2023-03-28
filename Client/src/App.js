@@ -1,24 +1,27 @@
-import './normal.css';
 import './App.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function App() {
 
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([{
-    user: "gpt:",
-    message: "Hello! I am your Math Learning Assistant, how can I help you today?"}
-  ]);
+    user: "User:",
+    message: "How can I help you today?"
+  }]);
+
+  const chatLogRef = useRef(null);
 
   function clearChat(){
     setChatLog([]);
   }
+
   async function handleSubmit(e){
     e.preventDefault();
     let chatLogNew = [...chatLog, { user: "me", message: `${input}`} ]
     setInput("");
-    setChatLog(chatLogNew)
-    const messages = chatLogNew.map((message) => message.message).join("/n");
+    setChatLog(chatLogNew);
+    
+    const messages = chatLogNew.map((message) => message.message).join("\n");
     const response = await fetch("http://localhost:3080/", {
       method: "POST",
       headers: {
@@ -28,10 +31,18 @@ function App() {
         message: messages
       })
     });
+    
     const data = await response.json();
-    setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}`} ])
-
+    const gptMessage = data.message.split("\n").map((message) => ({
+      user: "gpt",
+      message: message
+    }));
+    setChatLog([...chatLogNew, ...gptMessage]);
   }
+
+  useEffect(() => {
+    chatLogRef.current.scrollTop = chatLogRef.current.scrollHeight;
+  }, [chatLog]);
 
   return (
     <div className="App">
@@ -42,22 +53,22 @@ function App() {
       </div>
     </aside>   
     <section className="chatbox">
-      <div className='chat-log'>
+      <div className='chat-log' ref={chatLogRef}>
         {chatLog.map((message, index) => (
           <ChatMessage key={index} message={message} />
         ))}
-    </div>
-    <div
-    className='chat-input-holder'>
-    <form onSubmit={handleSubmit}>
-      <input
-      rows='1'
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
-      className='chat-input-textarea'
-      placeholder='Type Your Problem Here'></input>
-      </form>
-    </div>
+      </div>
+      <div className='chat-input-holder'>
+        <form onSubmit={handleSubmit}>
+          <input
+            rows='1'
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className='chat-input-textarea'
+            placeholder='Type Your Problem Here'
+          />
+        </form>
+      </div>
     </section>
     </div>
   );
@@ -66,15 +77,14 @@ function App() {
 const ChatMessage = ({ message }) => {
   return (
     <div className={`chat-message ${message.user === "gpt" && "chatgpt"}`}>
-          <div
-          className='chat-message-center'>
-             <div className={`avatar ${message.user === "gpt" && "chatgpt"}`}>
+      <div className='chat-message-center'>
+        <div className={`avatar ${message.user === "gpt" && "chatgpt"}`}>
+        </div>
+        <div className='message'>
+          {message.message}
+        </div>
       </div>
-      <div className='message'>
-        {message.message}
-      </div>
-          </div>
-      </div>
+    </div>
   )
 }
 
