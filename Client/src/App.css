@@ -1,127 +1,3 @@
-/* 
-.App {
-  text-align: center;
-  display:flex;
-  background-color: #282c34;
-  color:lightgrey;
-  position:absolute;
-  top:0;bottom:0;right:0;left:0;
-}
-
-.sidemenu {
-  width:240px;
-  padding:10px;
-  background-color:#007AF5;
-}
-
-.chatbox {
-  flex:1;
-  padding:10x;
-  background-color: #F3F8F2;
-  position: relative;
-}
-
-.side-menu-button {
-  padding:12px;
-  border:1px solid white;
-  border-radius:5px;
-  text-align: left;
-  transition:ease 0.25s all;
-}
-
-.side-menu-button:hover {
-  background-color:rgba(255,255,255, 0.1)
-}
-
-.side-menu-button span {
-  padding-left:6x;
-  padding: right 12px;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.chat-input-holder {
-  padding:24px;
-  position:absolute;
-  bottom:0;
-  left:0;right:0;
-  font-size:small;
-}
-
-.chat-input-textarea {
-  background-color: #EBE9E9;
-  width:90%;
-  padding:12px;
-  color:white;
-  border-radius:5px;
-  border:None;
-  border-color:none;
-  font-size: 1.25em;
-  margin:12px;
-  outline:None;
-  box-shadow: 0 0 8px 0 rgba(0,0,0,0.25);
-}
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.chat-log {
-  text-align: left;
-}
-
-.chat-message.chatgpt {
-  background-color:#444654;
-}
-
-.chat-message-center {
-  max-width:640px;
-  margin-right:auto;
-  margin-left:auto;
-  display:flex;
-  padding:12px;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-.avatar.chatgpt {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-
-}
-
-.message {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .App {
   text-align: center;
   display: flex;
@@ -134,6 +10,39 @@
   width: 240px;
   padding: 16px;
   background-color: #004488;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Feedback-Button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #FFF;
+  border: 1px solid white;
+  color: #002c66;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.Feedback-Button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.Feedback-Button span {
+  color: #002c66;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.Feedback-Button:hover span {
+  color: #333;
 }
 
 .chatbox {
@@ -214,6 +123,8 @@
 
 .chat-log {
   text-align: left;
+  overflow-y: scroll;
+  max-height: 400px;
 }
 
 .chat-message.chatgpt {
