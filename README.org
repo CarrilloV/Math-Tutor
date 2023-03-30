@@ -1,0 +1,25 @@
+#+Title: AI Chatbot Research Project
+
+* README
+
+
+
+* Work Notes
+
+
+** <2023-03-29 Wed>
+*** Victor and Chris
+  - [ ] Try Wolfram Alpha +, see what that does
+  - [ ] Investigate the whole fine-tuning pipeline: What does it take
+    to start from nothing and have a specialized model that people
+    online can interact with.
+  - [ ] Keep fine tuning the prompt engring
+  - [ ] Everything but the money minimal model.
+*** Jason
+  - [ ] Look at grant funding opps
+  - [ ] SHU internal grant funding
+  - [ ] Maryann
+  - [ ] Course credit set up
+  - [ ] Measureable objectives I can set for you all
+  - [ ] Jason find out about $$ personal and Azure credits
+  - [ ] Grants people @ SHU, see about.
