@@ -9,8 +9,8 @@
 
 ** <2023-03-29 Wed>
 *** Victor and Chris
-  - [ ] Try Wolfram Alpha +, see what that does
-  - [ ] Investigate the whole fine-tuning pipeline: What does it take
+  - [X] Try Wolfram Alpha +, see what that does
+  - [X] Investigate the whole fine-tuning pipeline: What does it take
     to start from nothing and have a specialized model that people
     online can interact with.
   - [ ] Keep fine tuning the prompt engring
