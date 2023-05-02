@@ -12,9 +12,9 @@ Clone the project
   git clone https://github.com/CarrilloV/Math-Tutor.git
 ```
 
-In index.js replace the organization-key and api-key with your own from https://platform.openai.com/overview
+In index.js replace the organization-id and api-key with your own from https://platform.openai.com/overview
 ```bash
-  YOUR-ORGANIZATION-KEY
+  YOUR-ORGANIZATION-ID
   YOUR-API-KEY
 ```
 
